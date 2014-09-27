@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-=========================
-  README for Lab4
-=========================
+=================================
+	README for Lab4
+=================================
 
 
 
@@ -26,9 +25,3 @@ Implementation:
     The author believes that this assignment has been completed to meet 
 all the expectations of the assignment's guidelines. That is, all aspects 
 of the work have been correctly implemented. 
-=======
-
-An all purpose directory for project, homework and lab submissions 
-  in Comp 20. Specific sub-directories will be forged on a project to project 
-  basis. 
->>>>>>> 98cd2af41294284746b065abc307e24ec4546601
