@@ -1,29 +1,16 @@
 
-=========================
-  README for Lab4
-=========================
+============================
+  README for Private Repo
+============================
 
 
 
 Purpose: 
 
-        A webpage that displays different sections of a sprite sheet 
-    depending on the size of the window. 
-
-			
-Time Spent:
-
-        Approxiamtely ____ hours were spent on this assignment
+        A private repository for all Web Programming assigments.
 
 
-Collaborators: 
-
-        The following people provided assistance on this assignment:
-	    - 
-
-
-Implementation: 
-
-        The author believes that this assignment has been completed to meet 
-    all the expectations of the assignment's guidelines. That is, all aspects 
-    of the work have been correctly implemented. 
+Assignments: 
+	- A responsive design assignment, investigating how responsive design 
+in CSS can be used to change design data under certain condition.
+	- More to come!
