@@ -1,2 +1,23 @@
 /* Style Sheet for Homer Image */
 
+
+.homer {
+	width: 600px;
+	height: 600px;
+}
+
+	@media screen and (min-width: 1280px) {
+		.homer {
+			width: 600px;
+			height: 600px;
+			background: url(homer.jpg) 0 0;
+		}
+	}
+
+	@media screen and (min-width: 1024px) and (max-width: 1280px) {
+		.homer {
+			width: 300px;
+			height: 300px;
+			background: url(homer.jpg) 300	
+		}
+	}
