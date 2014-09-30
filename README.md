@@ -11,6 +11,8 @@ Purpose:
 
 
 Assignments: 
+
 	- A responsive design assignment, investigating how responsive design 
 in CSS can be used to change design data under certain condition.
+
 	- More to come!
