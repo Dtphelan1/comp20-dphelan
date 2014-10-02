@@ -13,7 +13,7 @@ Purpose:
 			
 Time Spent:
 
-        Approxiamtely ____ hours were spent on this assignment
+        Approxiamtely 7 hours were spent on this assignment
 
 
 Collaborators: 
