@@ -1,5 +1,6 @@
-        README for Lab 4: "The Six O'Clock Alarm Would Never Ring" 
-        
+===========================================================
+README for Lab 4: "The Six O'Clock Alarm Would Never Ring" 
+============================================================
 
 Purpose:
         The purpose of this lab is to give the author practice with 
