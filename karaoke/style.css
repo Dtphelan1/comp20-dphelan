@@ -1,2 +1,14 @@
 /* Style sheet for the annotation lab */
 
+#title {
+	text-align: center; 
+	font-size: 2.25em; 
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+#lyrics {
+	
+	text-align: center;
+	font-size: 1.15em; 
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
