@@ -6,8 +6,12 @@
 	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
 
+video {
+        display: block;
+        margin: 4em auto;
+}
+
 #lyrics {
-	
 	text-align: center;
 	font-size: 1.15em; 
 	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
