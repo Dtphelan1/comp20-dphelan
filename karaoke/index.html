@@ -18,16 +18,16 @@
         function dynamicLyrics() {
         	var lyrics = document.getElementById("lyrics");
                 var video  = document.getElementById("music_video");
-                var seconds = video.currentTime
+                var seconds = video.currentTime;
                 
                 if (seconds >= 6 && seconds < 16) {
-                        lyrics.innerHTML = "<p> Oh, I could hide 'neath the wings <br /> \
-                                            Of the bluebird as she sings. </p> \ 
-                                            <img src="blackbird.jpg" alt = "Picture of a blackbird">";
+                        lyrics.innerHTML = "Oh, I could hide 'neath the wings <br /> \
+                                            Of the bluebird as she sings. <br /> " + 
+                                            "<img src='bluebird.jpg' alt='Picture of a bluebird'>";
                                            
                 } else if (seconds >= 16 && seconds < 22) {
-                        lyrics.innerHTML = "The six o'clock alarm would never ring.<br /> \ 
-                                            <img src="alarm-clock.jpg" alt = "Picture of an alarm clock.">";
+                        lyrics.innerHTML = "The six o'clock alarm would never ring.<br /> " +
+                                            "<img src='alarm-clock.jpg' alt='Picture of an alarm clock.'>";
                         
                 } else if (seconds >= 22 && seconds < 31) {
                         lyrics.innerHTML = "But it rings and I rise, <br />  \
@@ -40,13 +40,13 @@
                         lyrics.innerHTML = "Cheer up, Sleepy Jean. <br /> \
                                             Oh, what can it mean. <br /> \
                                             To a daydream believer <br /> \
-                                            And a homecoming queen.<br /> \ 
-                                            <img src="happy.jpg" alt = "Picture of a happy girl.">";
+                                            And a homecoming queen.<br />  " + 
+                                            "<img src='happy.jpg' alt='Picture of a happy girl.'>";
                                            
                 } else if (seconds >= 56 && seconds < 63) {
                         lyrics.innerHTML = "You once thought of me <br /> \
-                                            As a white knight on a steed.<br /> \ 
-                                            <img src="blackbird.jpg" alt = "Picture of a blackbird">";
+                                            As a white knight on a steed.<br />" + 
+                                            "<img src='white-knight' alt='Picture of a white knight'>";
                                            
                 } else if (seconds >= 63 && seconds < 68) {
                         lyrics.innerHTML = "Now you know how happy I can be.";
@@ -62,15 +62,17 @@
                         lyrics.innerHTML = "Cheer up, Sleepy Jean. <br /> \
                                             Oh, what can it mean. <br /> \
                                             To a daydream believer <br /> \
-                                            And a homecoming queen.<br /> \ 
-                                            <img src="happy.jpg" alt = "Picture of a happy girl.">";
+                                            And a homecoming queen.<br /> " + 
+                                            "<img src='happy.jpg' alt='Picture of a happy girl.'>";
+
                                            
                 } else if (seconds >= 103 && seconds < 119) {
                         lyrics.innerHTML = "Cheer up, Sleepy Jean. <br /> \
                                             Oh, what can it mean. <br /> \
                                             To a daydream believer <br /> \
-                                            And a homecoming queen.<br /> \ 
-                                            <img src="happy.jpg" alt = "Picture of a happy girl.">";
+                                            And a homecoming queen.<br />" + 
+                                            "<img src='happy.jpg' alt='Picture of a happy girl.'>";
+
                                            
                 } else if (seconds >= 120 && seconds < 127) {
                         lyrics.innerHTML = "[Instrumental interlude]"
@@ -79,9 +81,9 @@
                         lyrics.innerHTML = "<p>Cheer up, Sleepy Jean. <br /> \
                                             Oh, what can it mean. <br /> \
                                             To a daydream believer <br /> \
-                                            And a homecoming queen.</p> \ 
-                                            <img src="happy.jpg" alt = "Picture of a happy girl.">";
-                                           
+                                            And a homecoming queen.</p> " + 
+                                            "<img src='happy.jpg' alt='Picture of a happy girl.'>";
+
                 } else if (seconds >= 144) { 
                         lyrics.innerHTML = "Cheer up, Sleepy Jean. <br /> \
                                             Oh, what can it mean. <br /> \
