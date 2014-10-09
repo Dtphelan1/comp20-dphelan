@@ -10,14 +10,14 @@ Purpose:
         
 Time Spent: 
 
-        Approximately ____ hours were spent on this project.
+        Approximately 5 hours were spent on this project.
 
 Collaborators: 
 
         Below will list any individuals who assisted the author 
     with this project. In the event of an empty list, no one 
     aided the author in a particularly meaningful sense.
-        - 
+        - Andrew Dempsey
 
 Implementation: 
 
