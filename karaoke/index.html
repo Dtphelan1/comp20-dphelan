@@ -21,61 +21,62 @@
                 var seconds = video.currentTime;
                 
                 if (seconds >= 6 && seconds < 16) {
-                        lyrics.innerHTML = "Oh, I could hide 'neath the wings <br /> \
-                                            Of the bluebird as she sings. <br /> " + 
+                        lyrics.innerHTML = "<p>Oh, I could hide 'neath the wings <br /> \
+                                            Of the bluebird as she sings. </p>" + 
                                             "<img src='bluebird.jpg' alt='Picture of a bluebird'>";
                                            
                 } else if (seconds >= 16 && seconds < 22) {
-                        lyrics.innerHTML = "The six o'clock alarm would never ring.<br /> " +
-                                            "<img src='alarm-clock.jpg' alt='Picture of an alarm clock.'>";
+                        lyrics.innerHTML = "<p>The six o'clock alarm would never ring.</p> " ;
                         
                 } else if (seconds >= 22 && seconds < 31) {
-                        lyrics.innerHTML = "But it rings and I rise, <br />  \
-                                            Wipe the sleep out of my eyes.";
+                        lyrics.innerHTML = "<p>But it rings and I rise, <br />  \
+                                            Wipe the sleep out of my eyes.</p>" +
+                                            "<img src='alarm-clock.jpg' alt='Picture of an alarm clock.'>";
                                            
                 } else if (seconds >= 31 && seconds < 37) {
-                        lyrics.innerHTML = "My shavin' razor's cold and it stings.";
+                        lyrics.innerHTML = "<p>My shavin' razor's cold and it stings.<p/>";
                         
                 } else if (seconds >= 38 && seconds < 54) {
-                        lyrics.innerHTML = "Cheer up, Sleepy Jean. <br /> \
+                        lyrics.innerHTML = "<p>Cheer up, Sleepy Jean. <br /> \
                                             Oh, what can it mean. <br /> \
                                             To a daydream believer <br /> \
-                                            And a homecoming queen.<br />  " + 
+                                            And a homecoming queen.</p> " + 
                                             "<img src='happy.jpg' alt='Picture of a happy girl.'>";
                                            
                 } else if (seconds >= 56 && seconds < 63) {
-                        lyrics.innerHTML = "You once thought of me <br /> \
-                                            As a white knight on a steed.<br />" + 
-                                            "<img src='white-knight' alt='Picture of a white knight'>";
+                        lyrics.innerHTML = "<p>You once thought of me <br /> \
+                                            As a white knight on a steed. </p>" + 
+                                            "<img src='white-knight.jpg' alt='Picture of a white knight'>";
                                            
                 } else if (seconds >= 63 && seconds < 68) {
-                        lyrics.innerHTML = "Now you know how happy I can be.";
+                        lyrics.innerHTML = "<p>Now you know how happy I can be.</p>";
                         
                 } else if (seconds >= 69 && seconds < 77) {
-                        lyrics.innerHTML = "Oh, and our good times start and end <br /> \
-                                            Without dollar one to spend.";
+                        lyrics.innerHTML = "<p>Oh, and our good times start and end <br /> \
+                                            Without dollar one to spend.</p>" + 
+                                            "<img src='without-dollar.jpg' alt='Picture of a crossed-out dollar'>";
                                            
                 } else if (seconds >= 78 && seconds < 83) {
-                        lyrics.innerHTML = "But how much, baby, do we really need.";
+                        lyrics.innerHTML = "<p>But how much, baby, do we really need.</p>";
                         
                 } else if (seconds >= 86 && seconds < 102) {
-                        lyrics.innerHTML = "Cheer up, Sleepy Jean. <br /> \
+                        lyrics.innerHTML = "<p>Cheer up, Sleepy Jean. <br /> \
                                             Oh, what can it mean. <br /> \
                                             To a daydream believer <br /> \
-                                            And a homecoming queen.<br /> " + 
+                                            And a homecoming queen.</p> " + 
                                             "<img src='happy.jpg' alt='Picture of a happy girl.'>";
 
                                            
                 } else if (seconds >= 103 && seconds < 119) {
-                        lyrics.innerHTML = "Cheer up, Sleepy Jean. <br /> \
+                        lyrics.innerHTML = "<p>Cheer up, Sleepy Jean. <br /> \
                                             Oh, what can it mean. <br /> \
                                             To a daydream believer <br /> \
-                                            And a homecoming queen.<br />" + 
+                                            And a homecoming queen.</p>" + 
                                             "<img src='happy.jpg' alt='Picture of a happy girl.'>";
 
                                            
                 } else if (seconds >= 120 && seconds < 127) {
-                        lyrics.innerHTML = "[Instrumental interlude]"
+                        lyrics.innerHTML = "<p>[Instrumental interlude]</p>"
                         
                 } else if (seconds >= 128 && seconds < 144) {
                         lyrics.innerHTML = "<p>Cheer up, Sleepy Jean. <br /> \
@@ -85,11 +86,12 @@
                                             "<img src='happy.jpg' alt='Picture of a happy girl.'>";
 
                 } else if (seconds >= 144) { 
-                        lyrics.innerHTML = "Cheer up, Sleepy Jean. <br /> \
+                        lyrics.innerHTML = "<p>Cheer up, Sleepy Jean. <br /> \
                                             Oh, what can it mean. <br /> \
                                             To a daydream believer <br /> \
                                             And a homecoming queen. <br /> \
-                                            [Repeat and fade]";
+                                            [Repeat and fade]</p>" + 
+                                            "<img src='happy.jpg' alt='Picture of a happy girl.'>";
                 }
         }
         var video = document.getElementById("music_video");
