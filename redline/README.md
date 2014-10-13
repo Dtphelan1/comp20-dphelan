@@ -1,0 +1,35 @@
+========================
+    Redline project
+========================
+
+    Purpose: 
+
+        The purpose of this lab is to gain practice writing 
+        JavaScript, using third party API's, parsing JSON 
+        data and to understand the limitations of client-side 
+        JavaScript.
+
+    Time Spent:
+        
+        Approximately ___TODO:___ hours were spent on this project.
+
+    Collaborators: 
+        
+        Below is a list of the people who significantly 
+        contributed to this project. In the event of an empty 
+        list, readers should assume that all significant aspects 
+        of the project were completed by the main author, Dylan 
+        Phelan. 
+
+    Implementation: 
+
+        The author firmly believes that all aspects of this 
+        project were implemented to specifications. 
+
+    Questions: 
+       
+        One of the motivating questions behind this project 
+        was what are the limits of client-side JS; specifically,
+        is it possible to request the real-time data from the 
+        MBTA using XMLHttpRequest? The author has concluded 
+	____________TODO:______________. 
