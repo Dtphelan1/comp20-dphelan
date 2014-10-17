@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="styling.css" type="text/css" />
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjoxRk1gKr7r4mFBUZSjdTtXvw005k-5Y">
+    <script src="http://maps.google.com/maps/api/js?sensor=true">
     </script>
 
     <script>
@@ -52,11 +52,6 @@
                 // Pan to location
                 me.panTo(me);
 
-                // Create a Marker
-                marker = new google.maps.Marker({
-                        position: me,
-                        title: "Here I am"
-                });
                 marker.setMap(map);
 
                 // Open info window when one clicks on marker
@@ -71,7 +66,6 @@
                 infowindow.setContent(place.name);
                 infowindow.open(map, this);
         });
-        }
 
     </script>
     </head>
