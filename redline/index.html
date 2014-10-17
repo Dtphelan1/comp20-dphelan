@@ -32,7 +32,73 @@
                 map = google.maps.Map(document.getElementById("map-canvas"), myOptions);
                 getMyLocation();
         }
-        
+
+        function getMyLocation() {
+                // If geolocation is enabled
+                if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                                myLat = position.coords.latitude;
+                                myLng = position.coords.longitude;
+                                renderMap();
+                        });
+                } else {
+                        alert("Geolocation is not supported by your browser; we can't do anything");
+                }
+        }
+
+        function renderMap() {
+                me = new google.maps.LatLng(myLat, myLng);
+
+                // Pan to location
+                me.panTo(me);
+
+                // Create a Marker
+                marker = new google.maps.Marker({
+                        position: me,
+                        title: "Here I am"
+                });
+                marker.setMap(map);
+
+                // Open info window when one clicks on marker
+                google.maps.event.addListener(marker, 'click', function() {
+                        infoWindow.setContent(marker.title);
+                        infoWindow.open(map, marker);
+                });
+                
+                // Calling Google Places API
+                var request = {
+                        location: me,
+                        radius: '500',
+                        types: ['food']
+                };
+
+                service = new google.maps.places.PlacesService(map);
+                service.search(request, callback);
+        }
+
+        function callback(results, status) {
+                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                        alert("Got places back!");
+                        places = results;
+                        for (var i = 0; i < results.length; i++) {
+                                createMarker(results[i]);
+                        }
+                }
+        }
+
+        function createMarker(place) {
+                var placeLoc = place.geometry.location;
+                var marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+                infowindow.close();
+                infowindow.setContent(place.name);
+                infowindow.open(map, this);
+        });
+
     </script>
 
     </head>
