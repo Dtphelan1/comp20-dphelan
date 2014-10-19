@@ -6,7 +6,7 @@ README for Private Repo
 ###Purpose: 
 
 
-A private repository for all Web Programming assigments.
+        A private repository for all Web Programming assigments.
 
 
 ####Assignments: 
