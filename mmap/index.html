@@ -9,8 +9,8 @@
                 <link rel="stylesheet" href="mmapStyle.css" />
                 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
                 <script>
-                        var myLat = 0;
-                        var myLng = 0;
+                        var myLat = 50;
+                        var myLng = 20;
                         var response = new XMLHttpRequest();
                         var me = new google.maps.LatLng(myLat, myLng);
                         var map;
@@ -25,6 +25,7 @@
                                 position: me
                         };
                         var infoWindow = new google.maps.InfoWindow();
+                        var userData;
 
                         function init() {
                                 map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
@@ -34,12 +35,14 @@
 
                         function getMyLocation() {
                                 if (navigator.geolocation) {
+                                        console.log("Before getcurposition");
                                         navigator.geolocation.getCurrentPosition(function(position) {
+                                                console.log("During cur");
                                                 myLat = position.coords.latitude;
                                                 myLng = position.coords.longitude;
                                                 /* Make a marker for my location */
                                                 makeMarker();
-                                                renderMap();
+//                                                 renderMap();
                                                 });
                                 } else {
                                         alert("Geolocation is not supported on your web browser -- cannot display map");
@@ -52,7 +55,7 @@
                                 map.panTo(me);
                                 markerOptions.position = me;
 
-                                marker = new google.maps.marker(markerOptions);
+                                marker = new google.maps.Marker(markerOptions);
                         }
 
                         function renderMap() {
