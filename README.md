@@ -1,16 +1,14 @@
-
-============================
-  README for Private Repo
+README for Private Repo
 ============================
 
 
 
-Purpose: 
+###Purpose: 
 
         A private repository for all Web Programming assigments.
 
 
-Assignments: 
+####Assignments: 
 
 	- A responsive design assignment, investigating how responsive design 
 	in CSS can be used to change design data under certain condition.	
