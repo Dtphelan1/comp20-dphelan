@@ -11,24 +11,24 @@
                 <script>
                         var myLat = 0;
                         var myLng = 0;
-//                         var response = new XMLHttpResponse();
+                        var response = new XMLHttpRequest();
                         var me = new google.maps.LatLng(myLat, myLng);
-                        console.log(me);                                                                        ////////TODO: DELETE
                         var map;
                         var mapOptions = {
                                 zoom: 13,
                                 center: me,
                                 mapTypeId: google.maps.MapTypeId.ROADMAP
-                        }
+                        };
                         var marker;
                         var markerOptions = {
                                 title: "KyleBroflovski",
                                 position: me
-                        }
+                        };
                         var infoWindow = new google.maps.InfoWindow();
 
                         function init() {
                                 map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+                                console.log("Before get my location");
                                 getMyLocation();
                         }
 
@@ -44,19 +44,21 @@
                                 } else {
                                         alert("Geolocation is not supported on your web browser -- cannot display map");
                                 }
+                                console.log("After getting location");
                         }
 
                         function makeMarker() {
-                        
                                 me = new google.maps.LatLng(myLat, myLng);
-                                map.panTo();
+                                map.panTo(me);
                                 markerOptions.position = me;
-                                
+
                                 marker = new google.maps.marker(markerOptions);
                         }
 
                         function renderMap() {
+                                me = new google.maps.LatLng(myLat, myLng);
 
+                                map.panTo(me);
                         }
                 </script>
         </head>
