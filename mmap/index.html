@@ -12,15 +12,17 @@
                         var myLng = 0;
                         var response = new XMLHttpResponse();
                         var me = new google.maps.LatLng(myLat, myLng);
+                        console.log(me);                                                                        ////////TODO: DELETE
                         var map;
                         var mapOptions = {
-                                zoom = 13;
-                                mapTypeId = google.maps.MapTypeId.ROADMAP;
+                                zoom = 13,
+                                mapTypeId = google.maps.MapTypeId.ROADMAP
                         }
                         var marker;
                         var markerOptions = {
-                                title = "Kyle Brof
-                                position = me;
+                                title = "KyleBroflovski",
+                                position = me
+                        }
 
                         function init() {
                                 map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
@@ -32,6 +34,7 @@
                                         navigator.geolocation.getCurrentPosition(function(position) {
                                                 myLat = position.coords.latitude;
                                                 myLng = position.coords.longitude;
+                                                console.log(me);                                                /////////TODO: DELETE
                                                 /* Make a marker for my location */
                                                 makeMarker();
                                                 renderMap();
@@ -42,7 +45,6 @@
                         }
 
                         function makeMarker() {
-                                markerOptions.
                                 marker = new google.maps.marker(markerOptions);
                         }
 
