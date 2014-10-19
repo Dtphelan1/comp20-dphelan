@@ -22,6 +22,6 @@ README for Private Repo
         website with a different origin.
 
         - A Marauder's Map inspired website that displays the locations of
-        a variery of different students and characters. 
+        a variety of different students and characters.
 
         - More to come!
