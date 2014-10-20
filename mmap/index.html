@@ -21,8 +21,14 @@
                         };
                         var marker;
                         var myMarkerOptions= {
+                                animation: google.maps.Animation.DROP,
                                 map: map,
                                 title: "KyleBroflovski",
+                                icon: {
+                                        origin: new google.maps.Point(150, 0),
+                                        size: new google.maps.Size(50, 50),
+                                        url: 'iconSpritesheet.jpg'
+                                },
                                 position: myLoc
                         };
                         var infoWindow = new google.maps.InfoWindow();
@@ -76,6 +82,7 @@
                                 myMarker.setMap(map);
 
                                 google.maps.event.addListener(myMarker, 'click', function() {
+                                        infoWindow.close();
                                         infoWindow.setContent(myMarker.title);
                                         infoWindow.open(map, myMarker);
                                 });
@@ -113,27 +120,70 @@
                                         var personName = person['name'];
                                         var personLat = person['loc']['latitude'];
                                         var personLng = person['loc']['longitude'];
-                                        console.log("Is a Character: " + personName);                                    //// NEED TO DELETE
+                                        var personIcon = getCharIcon(personName);
+                                        var personElse = person['note'];
+                                        var contentString = "<p>                        \
+                                                Name: "       + personName + "</br>     \
+                                                Latitude: "   + personLat  + "</br>     \
+                                                Longitude: "  + personLng  + "</br>     \
+                                                Note: "       + personElse + "</br>     \
+                                                </p>";
                                 } else if (person['name'] == undefined) {
                                         var personName = person['login'];
                                         var personLat = person['lat'];
                                         var personLng = person['lng'];
-                                        console.log("Is a student: " + personName);                                     //// NEED TO DELETE
+                                        var personIcon = undefined;
+                                        var personElse = person['timestamp'];
+                                        var contentString = "<p>                        \
+                                                Login: "     + personName + "</br>      \
+                                                Latitude: "  + personLat  + "</br>      \
+                                                Longitude: " + personLng  + "</br>      \
+                                                Timestamp: " + personElse + "</br>      \
+                                                </p>";
                                 } 
                                 var personLoc = new google.maps.LatLng(personLat, personLng);
 
                                 var personMarker = new google.maps.Marker({
+                                        animation: google.maps.Animation.DROP,
                                         map: map,
                                         title: personName,
+                                        icon: personIcon,
                                         position: personLoc,
                                         opacity: .75
                                 });
 
                                 google.maps.event.addListener(personMarker, 'click', function () { 
                                         infoWindow.close();
-                                        infoWindow.setContent(personMarker.title);
+                                        infoWindow.setContent(contentString);
                                         infoWindow.open(map, personMarker);
                                 });
+                        }
+
+                        /* Summary: Get icon's for characters */
+                        function getCharIcon(name) { 
+                                var url = 'iconSpritesheet.jpg';
+                                if (name =='carmen' || name  == 'nr' || name == 'snape' || name == 'batman') {
+                                        var size = new google.maps.Size(50, 50);
+                                        if (name == 'carmen') {
+                                                var origin = new google.maps.Point(0, 0);
+                                        } else if (name == 'batman') {
+                                                var origin = new google.maps.Point(50, 0);
+                                        } else if (name == 'nr') {
+                                                var origin = new google.maps.Point(100, 0);
+                                        } else if (name == 'snape') {
+                                                var origin = new google.maps.Point(0, 50);
+                                        }
+                                } else if (name == 'waldo') {
+                                        var size = new google.maps.Size(50, 60);
+                                        var origin = new google.maps.Point(50, 50);
+                                } else if (name == 'hescott') {
+                                        var size = new google.maps.Size(50, 68);
+                                        var origin = new google.maps.Point(110, 50);
+                                }
+                                var icon = {size: size, origin: origin, url: url};
+                                return icon;
+
+
                         }
                 </script>
         </head>
