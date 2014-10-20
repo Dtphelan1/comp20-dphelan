@@ -103,7 +103,7 @@
                                         createMarker(characters[i]);
                                         var charLoc = new google.maps.LatLng(characters[i]['loc']['latitude'], characters[i]['loc']['longitude']);
                                         createPolyline(charLoc);
-                                        haversineDist(charLoc);
+                                        var distance = haversineDist(charLoc);
 
                                 }       
                         }
@@ -201,10 +201,10 @@
 
                         /* Summary: Calculates the dist b/t a character and me */
                         function haversineDist(charLoc) {
-                                var lat1 = ;
-                                var lon1 = ;
-                                var lat2 = ;
-                                var lon2 = ;
+                                var lat1 = myLoc.Lat();
+                                var lon1 = myLoc.Lng();
+                                var lat2 = charLoc.Lat();
+                                var lon2 = charLoc.Lng();
 
                                 var R = 6371; // km
                                 var φ1 = lat1.toRadians();
@@ -218,6 +218,8 @@
                                 var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
                                 var d = R * c;
+
+                                return kmToMiles(d);
                         }
 
                         /* Summary: Converts kilometers to miles */
