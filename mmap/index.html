@@ -32,12 +32,13 @@
                         var url = "http://chickenofthesea.herokuapp.com/sendLocation";
                         var userData;
 
+                        /* Summary: Starts function calls to build entire map */
                         function init() {
                                 map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-                                console.log(params);                                                                            ////////TODO: DELETE
                                 getMyLocation();
                         }
 
+                        /* Summary: Using google maps API, obtains my lat and lng data */
                         function getMyLocation() {
                                 if (navigator.geolocation) {
                                         navigator.geolocation.getCurrentPosition(function(position) {
@@ -52,6 +53,7 @@
                                 }
                         }
 
+                        /* Summary: Makes a marker for my character */
                         function makeMarker() {
                                 me = new google.maps.LatLng(myLat, myLng);
                                 map.panTo(me);
@@ -61,21 +63,30 @@
                                 marker.setMap(map);
                         }
 
+                        /* Summary: Makes a post to the heroku server with user information */ 
                         function makePost() { 
                                 /* Build Params */
-                                console.log(myLat);
-                                console.log(myLng);
-                                console.log(myMarkerOptions.title);
                                 params = "login=" + myMarkerOptions.title + "&lat=" + myLat + "&lng=" + myLng;
                                 request.open("POST", url, true);
 
                                 request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
                                 request.onreadystatechange = function() {
                                         if(request.readyState == 4 && request.status == 200) {
-                                                alert(request.responseText);
+                                                userData = JSON.parse(request.responseText);
+                                                parseCharacters();
+                                                parseStudents();
                                         }
                                 };
                                 request.send(params);
+                        }
+
+                        function parseCharacters() {
+                                console.log(userData);
+                                console.log(userData['characters'].length);
+
+                        }
+
+                        function parseStudents() {
 
                         }
                 </script>
