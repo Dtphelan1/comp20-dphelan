@@ -9,13 +9,13 @@
                 <link rel="stylesheet" href="mmapStyle.css" />
                 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
                 <script>
-                        var myLat = 50;
-                        var myLng = 20;
-                        var response = new XMLHttpRequest();
+                        /* Map Data*/
+                        var myLat = 0;
+                        var myLng = 0;
                         var me = new google.maps.LatLng(myLat, myLng);
                         var map;
                         var mapOptions = {
-                                zoom: 13,
+                                zoom: 9,
                                 center: me,
                                 mapTypeId: google.maps.MapTypeId.ROADMAP
                         };
@@ -25,11 +25,17 @@
                                 position: me
                         };
                         var infoWindow = new google.maps.InfoWindow();
+
+                        /* Specifically XMLHttpRequest Data */
+                        var response = new XMLHttpRequest();
+                        var url = "http://chickenofthesea.herokuapp.com/sendLocation";
+                        var params = "login=KyleBroflovski&lat=MYLAT&lng=MYLNG";
+                        console.log(params);
                         var userData;
 
                         function init() {
                                 map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-                                console.log("Before get my location");
+                                console.log(params);
                                 getMyLocation();
                         }
 
@@ -42,12 +48,10 @@
                                                 myLng = position.coords.longitude;
                                                 /* Make a marker for my location */
                                                 makeMarker();
-//                                                 renderMap();
                                                 });
                                 } else {
                                         alert("Geolocation is not supported on your web browser -- cannot display map");
                                 }
-                                console.log("After getting location");
                         }
 
                         function makeMarker() {
@@ -56,12 +60,11 @@
                                 markerOptions.position = me;
 
                                 marker = new google.maps.Marker(markerOptions);
+                                marker.setMap(map);
                         }
+                        function makePost() { 
+                                http.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 
-                        function renderMap() {
-                                me = new google.maps.LatLng(myLat, myLng);
-
-                                map.panTo(me);
                         }
                 </script>
         </head>
