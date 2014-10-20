@@ -6,8 +6,9 @@ Marauder's Map IRL:
 	The purpose of this lab is to give the author practice with 
     using a JSON API, a third-party JavaScript API, using the HTML5	
     geolocation API to determine location, using event handling, and 
-    using the XMLHttpRequest object to make requests and manage the response data. How? By making a real-life version of the Marauder's 
-    Map from Harry Potter. 
+    using the XMLHttpRequest object to make requests and manage the
+    response data. How? By making a real-life version of the 
+    Marauder's Map from Harry Potter. 
 
 ###Time Spent: 
 
