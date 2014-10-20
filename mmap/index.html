@@ -20,34 +20,32 @@
                                 mapTypeId: google.maps.MapTypeId.ROADMAP
                         };
                         var marker;
-                        var markerOptions = {
+                        var myMarkerOptions= {
                                 title: "KyleBroflovski",
                                 position: me
                         };
                         var infoWindow = new google.maps.InfoWindow();
 
                         /* Specifically XMLHttpRequest Data */
-                        var response = new XMLHttpRequest();
+                        var request = new XMLHttpRequest();
+                        var params;
                         var url = "http://chickenofthesea.herokuapp.com/sendLocation";
-                        var params = "login=KyleBroflovski&lat=MYLAT&lng=MYLNG";
-                        console.log(params);
                         var userData;
 
                         function init() {
                                 map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-                                console.log(params);
+                                console.log(params);                                                                            ////////TODO: DELETE
                                 getMyLocation();
                         }
 
                         function getMyLocation() {
                                 if (navigator.geolocation) {
-                                        console.log("Before getcurposition");
                                         navigator.geolocation.getCurrentPosition(function(position) {
-                                                console.log("During cur");
                                                 myLat = position.coords.latitude;
                                                 myLng = position.coords.longitude;
                                                 /* Make a marker for my location */
                                                 makeMarker();
+                                                makePost();
                                                 });
                                 } else {
                                         alert("Geolocation is not supported on your web browser -- cannot display map");
@@ -57,13 +55,27 @@
                         function makeMarker() {
                                 me = new google.maps.LatLng(myLat, myLng);
                                 map.panTo(me);
-                                markerOptions.position = me;
+                                myMarkerOptions.position = me;
 
-                                marker = new google.maps.Marker(markerOptions);
+                                marker = new google.maps.Marker(myMarkerOptions);
                                 marker.setMap(map);
                         }
+
                         function makePost() { 
-                                http.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+                                /* Build Params */
+                                console.log(myLat);
+                                console.log(myLng);
+                                console.log(myMarkerOptions.title);
+                                params = "login=" + myMarkerOptions.title + "&lat=" + myLat + "&lng=" + myLng;
+                                request.open("POST", url, true);
+
+                                request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+                                request.onreadystatechange = function() {
+                                        if(request.readyState == 4 && request.status == 200) {
+                                                alert(request.responseText);
+                                        }
+                                };
+                                request.send(params);
 
                         }
                 </script>
