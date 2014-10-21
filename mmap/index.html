@@ -32,6 +32,8 @@
                                 position: myLoc
                         };
                         var infoWindow = new google.maps.InfoWindow();
+                        var distanceArray = [];
+                        var distanceTable = ""; 
 
                         /* Specifically XMLHttpRequest Data */
                         var request = new XMLHttpRequest();
@@ -47,6 +49,8 @@
                                         userData = JSON.parse(request.responseText);
                                         parseCharacters();
                                         parseStudents();
+                                        sortDistances();
+                                        addDistancesToInfoWindow();
                                 }
                         };
 
@@ -99,12 +103,14 @@
                         /* Summary: Parses the data for each character */ 
                         function parseCharacters() {
                                 var characters = userData['characters'];
+
                                 for (i = 0; i < characters.length; i++) {
                                         createMarker(characters[i]);
                                         var charLoc = new google.maps.LatLng(characters[i]['loc']['latitude'], characters[i]['loc']['longitude']);
                                         createPolyline(charLoc);
                                         var distance = haversineDist(charLoc);
-
+                                        var distAndChar = {name: characters[i]['name'], dist: distance};
+                                        distanceArray.push(distAndChar);
                                 }       
                         }
                         /* Summary: Parses the data for each student */ 
@@ -160,7 +166,7 @@
                                 });
                         }
 
-                        /* Summary: Get icon's for characters */
+                        /* Summary: Get icons for characters */
                         function getCharIcon(name) { 
                                 var url = 'iconSpritesheet.jpg';
                                 if (name =='carmen' || name  == 'nr' || name == 'snape' || name == 'batman') {
@@ -225,6 +231,31 @@
                         /* Summary: Converts kilometers to miles */
                         function kmToMiles(km) {
                                 return km *  0.6214;
+                        }
+
+                        /* Summary: Sorts the distances between characters and me */
+                        function sortDistances() {
+                                /* We want a numeric sort, with closest coming 
+                                 * first, so we need to define a new sort */
+                                distanceArray.sort(function(a['dist'], b['dist']) {
+                                        if (a['dist'] < b['dist']) {
+                                                return -1;
+                                        } else if (a['dist'] > b['dist']) {
+                                                return 1;
+                                        } else { 
+                                                return 0;
+                                        }
+                                });
+                        }
+
+                        /* Summary: Adds the sorted distances to my infowindow */
+                        function addDistancesToInfoWindow() {
+                                var curContent = myMarker.title;
+                                for(int i = 0; i < distanceArray.length(); i++) {
+                                        newContent 
+                                }
+                                curContent = curContent + 
+
                         }
                 </script>
         </head>
