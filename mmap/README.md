@@ -12,7 +12,7 @@ Marauder's Map IRL:
 
 ###Time Spent: 
 
-    Approximately 7 hours were spent on this project.
+    Approximately 13 hours were spent on this project.
 
 ###Collaborators: 
 
