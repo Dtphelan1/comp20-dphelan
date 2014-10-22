@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html>
@@ -33,7 +34,6 @@
                         };
                         var infoWindow = new google.maps.InfoWindow();
                         var distanceArray = [];
-                        var distanceTable = ""; 
 
                         /* Specifically XMLHttpRequest Data */
                         var request = new XMLHttpRequest();
@@ -50,7 +50,7 @@
                                         parseCharacters();
                                         parseStudents();
                                         sortDistances();
-                                        addDistancesToInfoWindow();
+                                        myInfoWindow();
                                 }
                         };
 
@@ -85,11 +85,8 @@
                                 myMarker = new google.maps.Marker(myMarkerOptions);
                                 myMarker.setMap(map);
 
-                                google.maps.event.addListener(myMarker, 'click', function() {
-                                        infoWindow.close();
-                                        infoWindow.setContent(myMarker.title);
-                                        infoWindow.open(map, myMarker);
-                                });
+                                /* Info window event listener comes after -- we want it to 
+                                 *  include distances to characters */
                         }
 
                         /* Summary: Makes a post to the heroku server with user information */ 
@@ -128,7 +125,6 @@
                                         var personLat = person['loc']['latitude'];
                                         var personLng = person['loc']['longitude'];
                                         var personIcon = getCharIcon(personName);
-                                        console.log(person);
                                         var personElse = person['loc']['note'];
                                         var contentString = "<p>                        \
                                                 Name: "       + personName + "</br>     \
@@ -197,9 +193,9 @@
 
                                 var line = new google.maps.Polyline({ 
                                         path: path,
-                                        strokeColor: '#FF0000',
+                                        strokeColor: '#000000',
                                         strokeOpacity: 1.0,
-                                        strokeWeitght: 2,
+                                        strokeWeight: 2,
                                         geodesic: true
                                 });
                                 line.setMap(map);
@@ -207,16 +203,16 @@
 
                         /* Summary: Calculates the dist b/t a character and me */
                         function haversineDist(charLoc) {
-                                var lat1 = myLoc.Lat();
-                                var lon1 = myLoc.Lng();
-                                var lat2 = charLoc.Lat();
-                                var lon2 = charLoc.Lng();
+                                var lat1 = myLoc.lat();
+                                var lon1 = myLoc.lng();
+                                var lat2 = charLoc.lat();
+                                var lon2 = charLoc.lng();
 
                                 var R = 6371; // km
-                                var φ1 = lat1.toRadians();
-                                var φ2 = lat2.toRadians();
-                                var Δφ = (lat2-lat1).toRadians();
-                                var Δλ = (lon2-lon1).toRadians();
+                                var φ1 = toRad(lat1);
+                                var φ2 = toRad(lat2);
+                                var Δφ = toRad(lat2-lat1);
+                                var Δλ = toRad(lon2-lon1);
 
                                 var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
                                         Math.cos(φ1) * Math.cos(φ2) *
@@ -228,6 +224,11 @@
                                 return kmToMiles(d);
                         }
 
+                        /* Summary: Converts an input (degree mesure hopefully) to a radian value*/
+                        function toRad(x) {
+                               return x * Math.PI / 180;
+                        }
+
                         /* Summary: Converts kilometers to miles */
                         function kmToMiles(km) {
                                 return km *  0.6214;
@@ -237,7 +238,7 @@
                         function sortDistances() {
                                 /* We want a numeric sort, with closest coming 
                                  * first, so we need to define a new sort */
-                                distanceArray.sort(function(a['dist'], b['dist']) {
+                                distanceArray.sort(function(a, b) {
                                         if (a['dist'] < b['dist']) {
                                                 return -1;
                                         } else if (a['dist'] > b['dist']) {
@@ -248,14 +249,21 @@
                                 });
                         }
 
-                        /* Summary: Adds the sorted distances to my infowindow */
-                        function addDistancesToInfoWindow() {
-                                var curContent = myMarker.title;
-                                for(int i = 0; i < distanceArray.length(); i++) {
-                                        newContent 
+                        /* Summary: Adds the sorted distances to my infowindow and 
+                         *          establishes an event listener */
+                        function myInfoWindow() {
+                                var newContent = "";
+                                var length = distanceArray.length;
+                                for(i = 0; i < length; i++) {
+                                        newContent += distanceArray[i]['name'] + ": " + distanceArray[i]['dist'] + " miles </br>"; 
                                 }
-                                curContent = curContent + 
+                                contentString = "<b>" +  myMarker.title + "</b> <p> Distance From... </br> " + newContent + "</p>"; 
 
+                                google.maps.event.addListener(myMarker, 'click', function() {
+                                        infoWindow.close();
+                                        infoWindow.setContent(contentString);
+                                        infoWindow.open(map, myMarker);
+                                });
                         }
                 </script>
         </head>
