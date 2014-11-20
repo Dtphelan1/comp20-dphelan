@@ -4,22 +4,56 @@
 
 <head>
 	<title>My News Feed</title>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script>
-                // Things to do:
-                //      1. Display messages in the news section
-                //      2. Latest messages displayed at the top
-                //      3. Use Jquery and Local storage (localstorage.get () ?) 
-                //      4. Messages are redisplayed upon revisiting
-                //      5. Basics -- readme, folder, etc...
-                // $( "div#news" ).add( -- input text here, with a date an
-                // $( "input:text") 
+        <meta charset="utf-8"/>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+                $(document).ready(function(){
+                        /* Try to reload data from local storage*/
+                        reload();
+
+                        /* When new elements are input */ 
+                        $( "input" ).change(
+                                function handleNewInput() { 
+                                        /* Will probably use the timestamp as a key for the input */
+                                        var date = new Date();
+
+                                        /* First -- Place news in local storage */ 
+                                        var news = $( "input" ).val();
+                                        var time = date.getTime();
+                                        localStorage[time] = news;
+
+                                        /* Second -- Reload the elements in the news feed */
+                                        reload();
+                                }
+                        );
+
+                        /* For when reloading continuously without refreshing page -- 
+                        * Allows for a maintained copy of times, lowering sorting time*/
+                        function reload() {
+                                /* Local, sorted array of valid timestamps */
+                                var tmpTimes = new Array();
+
+                                /* First: Create an array of sorted keys -- timestamps */
+                                for (key in localStorage) {
+                                        tmpTimes.push(key);
+                                }
+                                tmpTimes.sort(function(a,b) {return b - a});
+
+                                /* Second: Display updates in this order */
+
+                                /* Reset it to the original format */
+                                $("div#news").html("News...");
+                                for (i = 0; i < tmpTimes.length; i++) {
+                                        $("div#news").append("<p> " + tmpTimes[i] + " - " + localStorage.getItem(tmpTimes[i]) + "</p>");
+                                }
+                        }
+                });
 	</script>
 </head>
 
 <body>
 	<h1>My News Feed</h1>
-	<h3>My news update: <input type="text" id="msg" name="msg" size="30" /></h3>
+	<h3>My news update: <input type="text" id="msg" name="msg" size="30"/></h3>
 	<div id="news">News...</div>
 </body>
 </html>
