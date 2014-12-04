@@ -38,15 +38,18 @@
 
         <h2> Abstract of Findings </h2>
         <p>
-            
-
+                Five vulnerabilities were pinpointed, the majority of which
+                stem from a strong faith in the client's external input. In overview,
+                the weakpoints to be discussed can lead to server crash, cross-side
+                scripting that affects later users, and access to the entire database
+                by anyone -- all of which pose issues for public usage. 
         </p>
 
         <h2> Issues Found </h2>
 
-                <h3> Issue </h3>
+                <h3> Issue: Location Faking </h3>
                 <ul>
-                        <li> Location </li>
+                        <li> Affects the POST interface</li>
                         <li> Severity of Issue </li>
                         <li> Description of Issue </li>
                         <li> Proof of Vulnerability </li>
