@@ -10,7 +10,8 @@
 
 <body>
         <h1> Security Assessment for Caroline Ramani </h1>
-        <p> Prepared by Dylan Phelan -- 12/2/2014 </p>
+        <div id="subheader"><p> Prepared by Dylan Phelan -- 12/2/2014 </p> </div>
+
 
         <h2> Introduction </h2>
         <p> 
@@ -24,14 +25,22 @@
             that would need to be addressed before usage in any public sense. 
         </p> 
 
+
         <h2> Methodology </h2>
         <p> 
             Most of the project's vulnerablities were found with a simple black box
             approach, testing a few common faults in web engineering. Once a 
-            few 
+            few solid problems were pinpointed, a glance over the source code
+            pointed me towards a couple of other server-side faults that could
+            leave the web-app open for attacks
         </p>
 
+
         <h2> Abstract of Findings </h2>
+        <p>
+            
+
+        </p>
 
         <h2> Issues Found </h2>
 
