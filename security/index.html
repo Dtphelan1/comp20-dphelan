@@ -46,57 +46,121 @@
         </p>
 
         <h2> Issues Found </h2>
+        <hr>
 
                 <h3> Issue: Location Faking </h3>
                 <ul>
-                        <li> Affects the POST interface</li>
-                        <li> Severity of Issue: </li>
-                        <li> Description of Issue </li>
-                        <li> Proof of Vulnerability </li>
-                        <li> Resolution </li>
+                        <li> 
+                            Affects the POST interface 
+                        </li>
+                        <li> 
+                            Severity of Issue: LOW. The problem is not a huge issue
+                            as of the current implementation, since there are no rewards 
+                            to be reaped from the information sent, the data serving mostly 
+                            as a static database. But the issue should be address in order 
+                            to make the API both accurate and, consequently, more versatile.
+                        </li>
+                        <li> 
+                            Description of Issue: As of current the implementation
+                            there is no check in place to verify if the client's lat
+                            and lng information. In the event that this API was to be 
+                            used for use in any public sphere, the lack of cross reference
+                            means the client can very easily forge any information sent to 
+                            the server. This could cause problems if the API information is 
+                            to be used in any system where there are incentives to be in 
+                            certain locations -- people could easily forge the information 
+                            and reap the rewards. 
+                        </li>
+                        <li> 
+                            Proof of Vulnerability: Below are
+                        </li>
+                        <li>
+                            Resolution 
+                        </li>
                 </ul>
 
                 <h3> Issue: Wild Card Access </h3>
                 <ul>
-                        <li> Location </li>
-                        <li> Severity of Issue </li>
-                        <li> Description of Issue </li>
-                        <li> Proof of Vulnerability </li>
-                        <li> Resolution </li>
+                        <li> 
+                            Affects the GET API 
+                        </li>
+                        <li> 
+                            Severity of Issue: LOW. The issue is easily remedied and
+                            and, in the worst case, simply alllows for free use of the 
+                            API. This may be an issure in terms of tracking who is commiting 
+                            what to the database and 
+                        </li>
+                        <li> 
+                            Description of Issue 
+                        </li>
+                        <li> 
+                            Proof of Vulnerability 
+                        </li>
+                        <li> 
+                            Resolution 
+                        </li>
                 </ul>
 
                 <h3> Issue: Complete Access to Database </h3>
-                <ul>
-                        <li> Location </li>
-                        <li>
-                             Severity of Issue: LOW. As of now there is limited
-                             information displayed, little of which is sensitive.
-                             As a location loader, however, having access to all
-                             logins -- not just the last 100 logins -- might raise
-                             some flags regarding who has full access to whose
-                             information. 
+                <ul> 
+                        <li> 
+                            Affects the GET API 
                         </li>
-                        <li> Description of Issue </li>
-                        <li> Proof of Vulnerability </li>
-                        <li> Resolution </li>
+                        <li>
+                            Severity of Issue: LOW. As of now there is limited
+                            information displayed, little of which is sensitive.
+                            As a location loader, however, having access to all
+                            logins -- not just the last 100 logins -- might raise
+                            some flags regarding who has full access to whose
+                            information. 
+                        </li>
+                        <li> 
+                            Description of Issue 
+                        </li>
+                        <li> 
+                            Proof of Vulnerability 
+                        </li>
+                        <li> 
+                            Resolution 
+                        </li>
                 </ul>
 
                 <h3> Issue: Spamming Servers </h3>
                 <ul>
-                        <li> Affects the POST interface </li>
-                        <li> Severity of Issue: MEDIUM </li>
-                        <li> Description of Issue </li>
-                        <li> Proof of Vulnerability </li>
-                        <li> Resolution </li>
+                        <li> 
+                            Affects the POST interface 
+                        </li>
+                        <li> 
+                            Severity of Issue: MEDIUM 
+                        </li>
+                        <li> 
+                            Description of Issue 
+                        </li>
+                        <li> 
+                            Proof of Vulnerability 
+                        </li>
+                        <li> 
+                            Resolution
+                        </li>
                 </ul>
 
                <h3> Issue: Cross Side Scripting </h3>
                 <ul>
-                        <li> Location </li>
-                        <li> Severity of Issue: HIGH </li>
-                        <li> Description of Issue </li>
-                        <li> Proof of Vulnerability </li>
-                        <li> Resolution </li>
+                        <li> 
+                            Location 
+                        </li>
+                        <li> 
+                            Severity of Issue: HIGH 
+                        </li>
+                        <li> 
+                            Description of Issue 
+                        </li>
+                        <li> 
+                            Proof of Vulnerability 
+                        </li>
+                        <li> 
+                            Resolution 
+                        </li>
                 </ul>
 
         <h2> Conclusion </h2> 
