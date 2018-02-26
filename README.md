@@ -4,12 +4,12 @@ README for Comp20-Dphelan Repo
 
 
 
-###Purpose: 
+### Purpose: 
 
         A private repository for all Web Programming assigments.
 
 
-####Assignments: 
+#### Assignments: 
 
         - A responsive design assignment, investigating how responsive design in
         CSS can be used to change design data under certain condition.
@@ -31,14 +31,14 @@ README for Comp20-Dphelan Repo
         assignment, highlighting pitfalls and possible solutions.
 
 
-####Favorite Assignmnet: 
+#### Favorite Assignmnet: 
 
         - The security write up, by far. I've been excited for months to get 
         a peak at the security side of web development. And now that I've 
         seen how accessible The Dark Arts are (The Defense side, of course), 
         I'm looking forward to learning more on my own.
         
-####Growth: 
+#### Growth: 
 
         - Over the past semester I've learned a couple of important things 
         from this course: Never trust data from the client; no one should 
@@ -48,7 +48,7 @@ README for Comp20-Dphelan Repo
         are hard to find. Seeing as I didn't know a lot of things three months
         ago, I'd say I've grown a helluvah lot. 
 
-####Take Aways: 
+#### Take Aways: 
         
         - Never having taken a CS course in high school, getting a late start 
         in the CS field the knowledge of all those around me has been intimidating, 
@@ -77,7 +77,7 @@ README for Comp20-Dphelan Repo
         than anything. 
         
 
-####Future Plans: 
+#### Future Plans: 
 
         - As alluded to above, I'm very excited to dive into the security field
         in both the coming semesters and vacations. Expect to see me next fall, 
